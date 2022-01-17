@@ -21,9 +21,9 @@ $regexInfoAnime = array(
 $regexInfoEpisodios = array(
     array('/(?<=<div class="imgep"><img width="277" height="156" src=").+?(?=")/m', 1/*Número da página*/, REGEX_IMAGEM_EPISODIO),
     array('/<div class="se-c">.+?<\/li><\/ul><\/div><\/div>/m', 0/*Número da página*/, REGEX_TEMPORADA_EPISODIO),
-    array("", 0/*Número da página*/, REGEX_DATA_EPISODIO),
-    array("", 0/*Número da página*/, REGEX_NOME_EPISODIO),
-    array("", 0/*Número da página*/, REGEX_NUMERO_EPISODIO)
+    array("", 0, REGEX_DATA_EPISODIO),
+    array("", 0, REGEX_NOME_EPISODIO),
+    array("", 0, REGEX_NUMERO_EPISODIO)
 );
 
 $info = new Class("https://animesonline.cc/anime/shingeki-no-kyojin/", $regexLinks, $regexInfoAnime, $regexInfoEpisodios) extends ExtractData2{
