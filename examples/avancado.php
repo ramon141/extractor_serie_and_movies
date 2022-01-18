@@ -14,8 +14,7 @@ $regexLinks = array(
 
 $regexInfoAnime = array(
     array('/(?<=<div class="data"><h1>).+(?= Todos os Episodios Online<\/h1>)/m',  0/*Número da página*/, REGEX_NOME_MEDIA),
-    array('/(?<=<div class="poster"> <img src=").+?(?=")/m', 0/*Número da página*/, REGEX_POSTER),
-    array('/(?:<div class="resumotemp">.+<br.*? )(?\'sinopse\'.+)(?:<\/p><h2>)/m', 0/*Número da página*/, REGEX_SINOPSE, "sinopse"),
+    array('/(?<=<div class="poster"> <img src=").+?(?=")/m', 0/*Número da página*/, REGEX_POSTER)
 );
 
 $regexInfoEpisodios = array(
@@ -26,7 +25,7 @@ $regexInfoEpisodios = array(
     array("", 0, REGEX_NUMERO_EPISODIO)
 );
 
-$info = new Class("https://animesonline.cc/anime/shingeki-no-kyojin/", $regexLinks, $regexInfoAnime, $regexInfoEpisodios) extends ExtractData2{
+$info = new Class("https://animesonline.cc/anime/no-game-no-life/", $regexLinks, $regexInfoAnime, $regexInfoEpisodios) extends ExtractData2{
     function onGetTemporada($history, $regex, $i){
         preg_match_all($regex, $history[$i][1], $results, PREG_SET_ORDER, 0);
 

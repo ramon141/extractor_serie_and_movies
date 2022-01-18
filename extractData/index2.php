@@ -56,7 +56,7 @@ class ExtractData2
 
         return json_encode(array(
             "info" => $this->media->getInfo(),
-            "episodios" => $this->media->getEpisodios()
+            "temporadas" => $this->media->getEpisodios()
         ));
     }
 
@@ -138,7 +138,7 @@ class ExtractData2
                 preg_match_all($regexInfo[0], $html, $results, PREG_SET_ORDER, 0);
 
                 if ($regexInfo[2] === REGEX_NOME_MEDIA) {
-                    $this->media->nome = $this->getResult($results, $regexInfo);
+                    $this->media->setNome($this->getResult($results, $regexInfo));
 
                 } else if ($regexInfo[2] === REGEX_POSTER) {
                     $this->media->poster = $this->getResult($results, $regexInfo);
