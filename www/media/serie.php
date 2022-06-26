@@ -110,7 +110,7 @@ class Serie extends Media
         if($this->sinopse == false) $this->sinopse = $serie->overview;
         if($this->ano_lancamento == false) $this->ano_lancamento = $serie->first_air_date;
         if($this->poster == false) $this->poster = $serie->backdrop_path;
-        if($this->tempo_episodio == false) $this->tempo_episodio = $serie->episode_run_time;
+        if($this->tempo_episodio == false) $this->tempo_episodio = $serie->episode_run_time[0];
         if($this->generos == false) $this->generos = $serie->genres;
         if($this->nota == false) $this->nota = $serie->vote_average;
     }
@@ -119,10 +119,11 @@ class Serie extends Media
         foreach($seasons as $season){
             if($i == $season->season_number){
                 return array(
-                    "id" => $season->id,
                     "nome" => $season->name,
                     "poster" => $season->poster_path,
-                    "quant_episodios" => $season->episode_count
+                    "quant_episodios" => $season->episode_count,
+                    "data_inicio_exibicao" => $season->air_date,
+                    "sinopse" => $season->overview
                 );
             }
         }

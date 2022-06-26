@@ -6,7 +6,7 @@ require '../extractData/index2.php';
 
 set_time_limit(60 * 10);
 
-$reg_anime = '/<div class="content"><div class="sheader"><div class="poster">\s?<img src="(?\'img_poster\'.+?)".+?<div class="data"><h1>(?\'titulo_anime\'.+?)<\/h1>.+?<div class="resumotemp"><div class="wp-content"><p>.+?<br \/>\s?(?\'resumo\'.+?)<\/p>.+?<\/div><\/div><\/div>/m';
+$reg_anime = '/<div class="content"><div class="sheader"><div class="poster">\s?<img src="(?\'img_poster\'.+?)".+?<div class="data"><h1>(?\'titulo_anime\'.+?) Todos os Episodios Online<\/h1>.+?<div class="resumotemp"><div class="wp-content"><p>.+?<br \/>\s?(?\'resumo\'.+?)<\/p>.+?<\/div><\/div><\/div>/m';
 $reg_info = '/<span class="breadcrumb_last">.+? (?\'nomeEpisodio\'(?:Ova|Episodio) \d+)<\/span>.+?<h1 class="epih1">.+? (?\'episodio\'\d+) Online<\/h1>.+?<p>.+? (?\'temporada\'\d+) ep \d+.+?<\/p>.*?<div class="imgep"><.+?src="(?\'imagem\'.+?)"/m';
 
 $regexLinks = array(
@@ -26,7 +26,7 @@ $regexInfoEpisodios = array(
     array($reg_info, 1, REGEX_NUMERO_EPISODIO, "episodio")
 );
 
-$info = new ExtractData2("https://animesonline.cc/anime/shingeki-no-kyojin/", $regexLinks, $regexInfoAnime, $regexInfoEpisodios);
+$info = new ExtractData2("https://animesonline.cc/anime/no-game-no-life/", $regexLinks, $regexInfoAnime, $regexInfoEpisodios);
 
 echo $info->extract();
 
