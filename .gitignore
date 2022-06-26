@@ -1,3 +1,7 @@
 sites/*
 sites
 keys.ini
+/.vscode
+/config/*
+/data/*
+/logs/*
